@@ -12,7 +12,7 @@ STATIC_PATHS = ['images', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}}
 
 # The new github pages uses the master branch or the docs/ folder
-OUTPUT_PATH = 'docs/'
+OUTPUT_PATH = 'output/'
 
 TIMEZONE = 'America/Los_Angeles'
 
@@ -65,16 +65,30 @@ MARKUP = ('md', 'ipynb')
 
 # Setup the plugins
 PLUGIN_PATHS = ('./plugins',)
-PLUGINS = ('ipynb.markup',)
+PLUGINS = ['tipue_search', 'sitemap']
 
 # Turn on categories
 DISPLAY_CATEGORIES_ON_MENU = True
 
 # Get rid of the index pages for tags and categories
-DIRECT_TEMPLATES = ['index', 'archives']
+DIRECT_TEMPLATES = ['index', 'search']
 
 # Specify the theme
 THEME = "themes/hutelmyer"
 
 # Ignore the CSS for jupyter notebooks, just use the one in the theme
 IPYNB_IGNORE_CSS = True
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}
